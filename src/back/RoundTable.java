@@ -1,9 +1,8 @@
 package back;
 
-import java.awt.Color;
+
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.geom.Ellipse2D;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -17,7 +16,6 @@ public class RoundTable extends JPanel {
 	 */
 	private static final long serialVersionUID = 7333043668412738647L;
 	private final LinkedList<Filosof> listFilosofs = new LinkedList<Filosof>();
-	private final LinkedList<Ellipse2D> visioFilosof = new LinkedList<Ellipse2D>();
 	private FilosofVisible[] arrFilosofVisible;
 	public RoundTable() {
 		short countFilosof = 5;
