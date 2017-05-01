@@ -13,6 +13,9 @@ public class ForkVisible extends Line2D {
 	Point p1;
 	Point p2;
 	
+	
+	
+	
 	public ForkVisible() {
 		
 	}
