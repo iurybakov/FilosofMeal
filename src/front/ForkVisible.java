@@ -4,8 +4,6 @@ import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 
-
-
 public class ForkVisible extends Line2D {
 
 	private double x1;
@@ -20,10 +18,7 @@ public class ForkVisible extends Line2D {
 	private Point rightTakePoint1;
 	private Point rightTakePoint2;
 	
-	public enum Position { left, right }
-	
-	
-	
+	public enum Position { left, right }	
 	
 	public ForkVisible(double x1, double y1, double x2, double y2) {
 		this.x1 = x1;
@@ -67,8 +62,7 @@ public class ForkVisible extends Line2D {
 	@Override
 	public double getY2() {
 		return y2;
-	}
-	
+	}	
 
 	@Override
 	public void setLine(double x1, double y1, double x2, double y2) {
@@ -110,5 +104,4 @@ public class ForkVisible extends Line2D {
 		this.y1 = p1.getY();
 		this.y2 = p2.getY();
 	}
-
 }
