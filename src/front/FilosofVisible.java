@@ -3,8 +3,7 @@ package front;
 import java.awt.Color;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Rectangle2D;
-
-import javax.swing.JPanel;
+import back.RoundTable;
 
 public class FilosofVisible extends Ellipse2D{
 	
@@ -13,14 +12,14 @@ public class FilosofVisible extends Ellipse2D{
 	private double height;
 	private double weight;
 	private Color colorFill = Color.BLACK;
-	private final JPanel parent;
+	private final RoundTable parent;
 	
-	public FilosofVisible(JPanel parent, double x, double y, double h, double w) {
+	public FilosofVisible(RoundTable parent, double x, double y, double h, double w) {
 		this.x = x;
 		this.y = y;
 		height = h;
 		weight = w;
-		this.parent = parent;
+		this.parent = parent;		
 	}
 
 	@Override
@@ -61,8 +60,9 @@ public class FilosofVisible extends Ellipse2D{
 		weight = w;
 	}
 	
-	public void eatingFilosof() {
+	public void eatingFilosof(int idFilosof, int countEating) {
 		colorFill = Color.BLUE;
+		parent.setEatingCount(idFilosof, countEating);
 		parent.repaint();
 	}
 	public void thinkFilosof() {
@@ -70,10 +70,12 @@ public class FilosofVisible extends Ellipse2D{
 		parent.repaint();
 	}
 	
+	public void readyFilosof() {
+		colorFill = Color.ORANGE;
+		parent.repaint();
+	}
+	
 	public Color getPaint() {
 		return colorFill;
 	}
-	
-
-
 }
