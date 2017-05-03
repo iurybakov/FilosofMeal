@@ -8,7 +8,6 @@ public class Filosof implements Runnable {
 	private Fork rightFork;
 	public int countEating = 0;
 	private int idFilosof;
-	private static volatile int ready = 5;
 	private final FilosofVisible filosofVisible;
 	
 	public Filosof(FilosofVisible filosofVisible, int IdFilosof, final Fork left, final Fork right) {
@@ -26,24 +25,12 @@ public class Filosof implements Runnable {
 		return rightFork;
 	}
 	
-	public void startEat() {
-		if (idFilosof == 1 || idFilosof == 3) {			
-			while (ready > 2);			
+	public void startEat() {		
+		try {			
 			synchronized(leftFork) {
-				synchronized(rightFork) {
-					--ready;
-					while (ready > 0);
-				}
+				leftFork.wait(idFilosof == 1 || idFilosof == 3 ? 2000 : 0);				
 			}
-		}
-		else {
-			try {
-				synchronized(leftFork) {
-				--ready;				
-				leftFork.wait();
-				}
-			} catch (InterruptedException e) {}
-		}
+		} catch (InterruptedException e) {e.printStackTrace();}
 	}	
 	
 	@Override
@@ -73,7 +60,7 @@ public class Filosof implements Runnable {
 					leftFork.wait();
 					
 				}
-			} catch (InterruptedException e) {}
+			} catch (InterruptedException e) {e.printStackTrace();}
 		}		
 	}
 }

@@ -1,6 +1,5 @@
 package back;
 
-
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -13,9 +12,7 @@ import front.FilosofVisible;
 import front.ForkVisible;
 
 public class RoundTable extends JPanel {	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 7333043668412738647L;
 	private final LinkedList<Filosof> listFilosofs = new LinkedList<Filosof>();
 	private FilosofVisible[] arrFilosofVisible = new FilosofVisible[5];
@@ -60,26 +57,24 @@ public class RoundTable extends JPanel {
 		for (Filosof f : listFilosofs) {
 			Thread tmpThread = new Thread(f);
 			tmpThread.start();
-			threadFilosofs.add(tmpThread);
-			
+			threadFilosofs.add(tmpThread);			
 		}
 	}	
 	
 	public void setEatingCount(int idFilosof, int countEating) {
 		arrCountEating[idFilosof - 1].setText("_" + countEating + "_");
-	}
-	
+	}	
 	
 	@Override
 	public void paintComponent(Graphics g) {
-		super.paintComponent(g);		
+		super.paintComponent(g);
+		
 		Graphics2D g2d = (Graphics2D)g;
 		for (int i = 0; i < 5; i++) {
 			g2d.setPaint(Color.BLACK);
 			g2d.draw(arrForkVisible[i]);
 			g2d.setPaint(arrFilosofVisible[i].getPaint());
-			g2d.fill(arrFilosofVisible[i]);
-			
+			g2d.fill(arrFilosofVisible[i]);			
 		}
 	}
 }
